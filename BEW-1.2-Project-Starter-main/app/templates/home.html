@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Teams</h2>
+<p>
+    <a href="/create_team">+ New Team</a>
+</p>
+
+<ul>
+{% for team in all_teams %}
+    <li><a href="/team/{{ team.id }}">{{ team.name }}</a></li>
+{% endfor %}
+</ul>
+
+<h2>Players</h2>
+
+<ul>
+    {% for player in all_Players %}
+        <li><a href="/profile/{{ player.username }}">{{ player.username }}</a></li>
+    {% endfor %}
+</ul>
+
+
+
+{% endblock %}

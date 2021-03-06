@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('main.create_team') }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Enter a Team</legend>
+
+        {{ form.team_name.label }}
+        {{ form.team_name }}
+        <ul>
+        {% for error in form.team_name.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        
+        {{ form.add_member.label }}
+        {{ form.add_member }}
+        <ul>
+        {% for error in form.add_member.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+
+        {{ form.skill.label }}
+        {{ form.skill }}
+        <ul>
+        {% for error in form.skill.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+            
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}
